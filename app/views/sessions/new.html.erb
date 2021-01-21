@@ -1,0 +1,17 @@
+<h1>Log in user</h1>
+<% if flash[ :messages ] %>
+    <ul>
+    <% flash[ :messages ].each do | error_message | %>
+        <li style="color:red"><%= error_message %></li>
+    <% end %>
+    </ul>
+<% end %>
+<%= form_for 'users', controller: 'login', method: 'post' do | f | %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <%= f.submit %>
+<% end %>
